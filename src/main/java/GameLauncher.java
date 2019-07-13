@@ -1,11 +1,4 @@
-import monsters.*;
-
-import java.util.Random;
-import java.util.Scanner;
-
 public class GameLauncher {
-
-
 
     public static void main(String[] args) {
         Battle battle = new Battle();
@@ -15,6 +8,7 @@ public class GameLauncher {
         while(inDungeon) {
             battle.start();
             inDungeon = battle.doesPlayerWantToStay();
+            inDungeon =  battle.shop();
         }
         displayExitMessage();
 }

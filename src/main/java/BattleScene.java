@@ -64,7 +64,7 @@ public class BattleScene {
                 System.out.println("\t> You receive " + enemy.getAttackDamage() + " in retaliation!");
 
                 if (health < 1) {
-                    System.out.println("\t> You have taken too much damage, you are too weak to go on!");
+                    System.out.println("\t> You have taken too much damage, you are too weak to go on!\n");
                     break;
                 }
 

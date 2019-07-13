@@ -9,6 +9,8 @@ public class Battle {
     public static final String WEAPON_SWORD = "Sword";
     public static final String WEAPON_SPEAR = "Spear";
 
+    boolean inDungeon = true;
+
     Scanner in = new Scanner(System.in);
 
     public void start() {
@@ -185,9 +187,32 @@ public class Battle {
         if (input.equals("1")) {
             System.out.println("You continue on your adventure");
         } else if (input.equals("2")) {
-            System.out.println("You exit the Dungeon, successful from your adventures!");
+            System.out.println("You exit the Dungeon, successful from your adventures! and Return Home.\n");
             return false;
         }
         return true;
     }
+
+    public boolean shop() {
+
+        System.out.println("\tWelcome Home Traveler! What Would You Like To Do First.\n");
+
+            String input = in.nextLine();
+
+            if(input.equals("Leave!")){
+                System.out.println("\tDo You Wish To Leave Town?");
+            }
+            if (input.equals("Yes!")) {
+                return false;
+            } else if (input.equals("No!")) {
+                return true;
+            }
+            while (!input.equals("Yes!") && !input.equals("No!") && !input.equals("Leave!")) {
+                System.out.println("Invalid Command!");
+                input = in.nextLine();
+            }
+        return true;
+    }
+
+
 }
