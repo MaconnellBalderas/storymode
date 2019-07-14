@@ -3,7 +3,7 @@ import monsters.*;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Battle {
+public class Dungeon {
     public static final String WEAPON_BOW = "Bow";
     public static final String WEAPON_AXE = "Axe";
     public static final String WEAPON_SWORD = "Sword";
@@ -13,7 +13,7 @@ public class Battle {
 
     Scanner in = new Scanner(System.in);
 
-    public void start() {
+    public void enter() {
         //Objects
         Random rand = new Random();
 
@@ -97,6 +97,9 @@ public class Battle {
 
                 } else if (input.equals("3")) {
                     System.out.println("\tYou run away from the " + enemy.getName() + "!");
+
+                    running = doesPlayerWantToStay();
+
                     continue GAME;
 
                 } else if (input.equals("Controls")) {
