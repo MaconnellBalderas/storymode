@@ -2,33 +2,35 @@ public class GameLauncher {
 
     public static void main(String[] args) {
         Dungeon dungeon = new Dungeon();
-        WeaponShop weaponShop = new WeaponShop();
-        MainMenu menu = new MainMenu();
 
+        WeaponShop weaponShop = new WeaponShop();
+        BlackSmith blackSmith = new BlackSmith();
+        Church church = new Church();
+        WizardCenter wizardCenter = new WizardCenter();
+        ArmorShop armorShop = new ArmorShop();
+
+        MainMenu menu = new MainMenu();
 
         displayWelcomeMessage();
         boolean inGame = true;
         while(inGame) {
             int option = menu.display();
             switch(option){
-                case 1: System.out.println("Blacksmith"); break;
-                case 2: System.out.println("church"); break;
-                case 3: System.out.println("Wizard"); break;
-                case 4: System.out.println("You have entered the Weapon Shop"); weaponShop.enter(); break;
-                case 5: System.out.println("armor"); break;
+                case 1: System.out.println("You Have Entered The BlackSmith\n"); blackSmith.enter(); break;
+                case 2: System.out.println("You Have Entered The Church\n"); church.enter(); break;
+                case 3: System.out.println("You Have Entered The Wizard Center\n"); wizardCenter.enter(); break;
+                case 4: System.out.println("You have Entered The Weapon Shop\n"); weaponShop.enter(); break;
+                case 5: System.out.println("You Have Entered The Armor Shop\n"); armorShop.enter(); break;
                 case 6: System.out.println("You have entered the dungeon.\n"); dungeon.enter(); break;
-                case 7: inGame=false;
+                case 7: inGame = false;
             }
-
 
         }
         displayExitMessage();
 }
 
     private static void displayWelcomeMessage() {
-        System.out.println("Welcome To The Dungeon!");
-        System.out.println("Type 'Controls' for more options");
-        System.out.println("You enter out with your bare hands, Good Luck!\n");
+        System.out.println("StoryMode Town Defender!\n");
     }
 
     private static void displayExitMessage(){

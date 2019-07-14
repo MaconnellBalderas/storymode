@@ -1,11 +1,11 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class WeaponShop {
+public class BlackSmith {
     Scanner in = new Scanner(System.in);
     public void enter() {
-        //Buy Weapon
-        //Sell Weapon
+        //Upgrade Weapon/Armor
+        //Fix Weapon/Armor
         display();
     }
 
@@ -15,8 +15,10 @@ public class WeaponShop {
 
         while (!isChoiceValid) {
             System.out.println("Welcome To The Weapon Shop! What Can I do For You?");
-            System.out.println("1. Buy Weapon");
-            System.out.println("2. Sell Weapon");
+            System.out.println("1. Upgrade Weapon");
+            System.out.println("2. Fix Weapon");
+            System.out.println("3. Upgrade Armor");
+            System.out.println("4. Fix Armor");
 
             try {
                 input = in.nextInt();
@@ -31,7 +33,7 @@ public class WeaponShop {
     }
 
     private boolean validateChoice(int input) {
-        return (input >= 1 && input <= 2);
+        return (input >= 1 && input <= 4);
     }
 
 }
