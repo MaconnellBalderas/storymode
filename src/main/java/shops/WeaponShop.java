@@ -1,12 +1,13 @@
+package shops;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Church {
+public class WeaponShop {
     Scanner in = new Scanner(System.in);
     public void enter() {
-        //Heal player
-        //Upgrade Stats of Player
-        //*SpawnPoint*
+        //Buy Weapon
+        //Sell Weapon
         display();
     }
 
@@ -15,10 +16,10 @@ public class Church {
         boolean isChoiceValid = false;
 
         while (!isChoiceValid) {
-            System.out.println("Welcome To The Church! How May The Lord Serve You?");
-            System.out.println("1. Heal Player");
-            System.out.println("2. Upgrade Stats");
-            System.out.println("3. Set Spawn Point");
+            System.out.println("Welcome To The Weapon Shop! What Can I do For You?");
+            System.out.println("1. Buy Weapon");
+            System.out.println("2. Sell Weapon");
+            System.out.println("3. Leave");
 
             try {
                 input = in.nextInt();
@@ -29,10 +30,14 @@ public class Church {
                 in.nextLine();
             }
         }
+        if(input == 3){
+            isChoiceValid = true;
+        }
         return input;
     }
 
     private boolean validateChoice(int input) {
         return (input >= 1 && input <= 3);
     }
+
 }

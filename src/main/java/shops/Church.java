@@ -1,11 +1,14 @@
+package shops;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class ArmorShop {
+public class Church {
     Scanner in = new Scanner(System.in);
     public void enter() {
-        //Buy Armor
-        //Sell Armor
+        //Heal player
+        //Upgrade Stats of Player
+        //*SpawnPoint*
         display();
     }
 
@@ -14,9 +17,11 @@ public class ArmorShop {
         boolean isChoiceValid = false;
 
         while (!isChoiceValid) {
-            System.out.println("Welcome To The Armor Shop! How May You Find Protection Today?");
-            System.out.println("1. Buy Armor");
-            System.out.println("2. Sell Armor");
+            System.out.println("Welcome To The shops.Church! How May The Lord Serve You?");
+            System.out.println("1. Heal Player");
+            System.out.println("2. Upgrade Stats");
+            System.out.println("3. Set Spawn Point");
+            System.out.println("4. leave");
 
             try {
                 input = in.nextInt();
@@ -27,10 +32,13 @@ public class ArmorShop {
                 in.nextLine();
             }
         }
+        if(input == 4){
+            isChoiceValid = true;
+        }
         return input;
     }
 
     private boolean validateChoice(int input) {
-        return (input >= 1 && input <= 2);
+        return (input >= 1 && input <= 4);
     }
 }

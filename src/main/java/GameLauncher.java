@@ -1,3 +1,5 @@
+import shops.*;
+
 public class GameLauncher {
 
     public static void main(String[] args) {
@@ -22,7 +24,8 @@ public class GameLauncher {
                 case 4: System.out.println("You have Entered The Weapon Shop\n"); weaponShop.enter(); break;
                 case 5: System.out.println("You Have Entered The Armor Shop\n"); armorShop.enter(); break;
                 case 6: System.out.println("You have entered the dungeon.\n"); dungeon.enter(); break;
-                case 7: inGame = false;
+                case 7: System.out.println("Your Gold Is: " dungeon.gold()); break;
+                case 8: inGame = false;
             }
 
         }
