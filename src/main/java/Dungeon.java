@@ -11,6 +11,8 @@ public class Dungeon {
 
     boolean inDungeon = true;
 
+    PlayerInventory playerInventory = new PlayerInventory();
+
     Scanner in = new Scanner(System.in);
 
     public void enter() {
@@ -153,6 +155,7 @@ public class Dungeon {
                     System.out.println("Invalid Command!");
                 }
             }
+                playerInventory.gold += 5;
 
             if (health < 1) {
                 System.out.println("You limp out of the dungeon, weak from battle.");
