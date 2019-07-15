@@ -12,40 +12,35 @@ public class Dungeon {
     boolean inDungeon = true;
 
     Scanner in = new Scanner(System.in);
-    public int gold = 0;
-
-    //Objects
-    Random rand = new Random();
-
-    //Game Variables
-    Monster[] enemies = {new Skeleton(), new Zombie(), new Assassin(), new Warrior()};
-    String[] leader = {"The Middengard Wyrm"};
-    //Skeleton weak against Bow
-    // Zombie weak against Axe
-    // Warrior weak against Spear
-    // Assassin weak against Sword
-    String[] items = {"Sword", "Axe", "Bow", "Spear"};
-    int maxEnemyHealth = 100;
-    int maxBossHealth = 200;
-    int enemyAttackDamage = 15;
-    int bossDamage = 50;
-
-    //Player Variables
-    int health = 100;
-    int attackDamage = 15;
-    int numHealthPotions = 3;
-    int healthPotionHealAmount = 60;
-    int healthPotionDropChance = 50; //Percentage
-
-    int swordDamage = 35;
-    int axeDamage = 35;
-    int bowDamage = 35;
-    int spearDamage = 35;
-
-    Monster enemy = enemies[rand.nextInt(enemies.length)];
-    int enemyHealth = rand.nextInt(enemy.getHitPoints());
 
     public void enter() {
+        //Objects
+        Random rand = new Random();
+
+        //Game Variables
+        Monster[] enemies = {new Skeleton(), new Zombie(), new Assassin(), new Warrior()};
+        String[] leader = {"The Middengard Wyrm"};
+        //Skeleton weak against Bow
+        // Zombie weak against Axe
+        // Warrior weak against Spear
+        // Assassin weak against Sword
+        String[] items = {"Sword", "Axe", "Bow", "Spear"};
+        int maxEnemyHealth = 100;
+        int maxBossHealth = 200;
+        int enemyAttackDamage = 15;
+        int bossDamage = 50;
+
+        //Player Variables
+        int health = 100;
+        int attackDamage = 15;
+        int numHealthPotions = 3;
+        int healthPotionHealAmount = 60;
+        int healthPotionDropChance = 50; //Percentage
+
+        int swordDamage = 35;
+        int axeDamage = 35;
+        int bowDamage = 35;
+        int spearDamage = 35;
 
         boolean running = true;
 
@@ -54,6 +49,8 @@ public class Dungeon {
         while (running) {
             System.out.println("------------------------------------");
 
+            Monster enemy = enemies[rand.nextInt(enemies.length)];
+            int enemyHealth = rand.nextInt(enemy.getHitPoints());
             //  String boss = leader[leader.length];
 
             System.out.println("\t# " + enemy.getName() + " has appeared! #\n");
@@ -165,7 +162,6 @@ public class Dungeon {
             System.out.println("------------------------------------");
             System.out.println(" # " + enemy.getName() + " was defeated! #");
             System.out.println(" # You have " + health + " HP left #");
-            gold += 5;
 
             if (rand.nextInt(100) < healthPotionDropChance) {
                 numHealthPotions++;
@@ -196,13 +192,6 @@ public class Dungeon {
             return false;
         }
         return true;
-    }
-
-    public int gold(){
-        if(enemyHealth <= 0){
-            gold += 5;
-        }
-        return gold;
     }
 
     public boolean shop() {

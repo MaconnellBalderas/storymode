@@ -18,6 +18,7 @@ public class BattleScene {
     int numHealthPotions = 3;
     int healthPotionHealAmount = 60;
     int healthPotionDropChance = 50; //Percentage
+    int score = 0;
 
     int swordDamage = 35;
     int axeDamage = 35;

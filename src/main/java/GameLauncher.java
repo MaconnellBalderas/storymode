@@ -13,6 +13,8 @@ public class GameLauncher {
 
         MainMenu menu = new MainMenu();
 
+        PlayerInventory playerInventory = new PlayerInventory();
+
         displayWelcomeMessage();
         boolean inGame = true;
         while(inGame) {
@@ -24,7 +26,7 @@ public class GameLauncher {
                 case 4: System.out.println("You have Entered The Weapon Shop\n"); weaponShop.enter(); break;
                 case 5: System.out.println("You Have Entered The Armor Shop\n"); armorShop.enter(); break;
                 case 6: System.out.println("You have entered the dungeon.\n"); dungeon.enter(); break;
-                case 7: System.out.println("Your Gold Is: " dungeon.gold()); break;
+                case 7: System.out.println("Your Gold Is: " + playerInventory.getGold()); break;
                 case 8: inGame = false;
             }
 

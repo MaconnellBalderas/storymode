@@ -16,7 +16,7 @@ public class MainMenu {
             System.out.println("4. Weapon Shop");
             System.out.println("5. Armor Shop");
             System.out.println("6. Dungeon");
-            System.out.println("7. Points");
+            System.out.println("7. Your Gold");
             System.out.println("8. Quit");
 
             try {
