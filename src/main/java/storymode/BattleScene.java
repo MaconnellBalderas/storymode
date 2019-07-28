@@ -1,4 +1,6 @@
-import monsters.*;
+package storymode;
+
+import storymode.monsters.*;
 import java.util.Random;
 
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package monsters;
+package storymode.monsters;
 
 public class Monster{
     private String name;

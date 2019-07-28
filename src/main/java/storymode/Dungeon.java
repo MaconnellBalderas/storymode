@@ -1,4 +1,6 @@
-import monsters.*;
+package storymode;
+
+import storymode.monsters.*;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -8,21 +10,25 @@ public class Dungeon {
     public static final String WEAPON_AXE = "Axe";
     public static final String WEAPON_SWORD = "Sword";
     public static final String WEAPON_SPEAR = "Spear";
+    public int attackDamage = 15;
 
     boolean inDungeon = true;
 
-    PlayerInventory playerInventory = new PlayerInventory();
-
     Scanner in = new Scanner(System.in);
 
-    public void enter() {
+    public int damage(){
+        attackDamage = 35;
+        return attackDamage;
+    }
+
+    public void enter(PlayerInventory playerInventory) {
         //Objects
         Random rand = new Random();
 
         //Game Variables
         Monster[] enemies = {new Skeleton(), new Zombie(), new Assassin(), new Warrior()};
         String[] leader = {"The Middengard Wyrm"};
-        //Skeleton weak against Bow
+        // Skeleton weak against Bow
         // Zombie weak against Axe
         // Warrior weak against Spear
         // Assassin weak against Sword
@@ -34,7 +40,6 @@ public class Dungeon {
 
         //Player Variables
         int health = 100;
-        int attackDamage = 15;
         int numHealthPotions = 3;
         int healthPotionHealAmount = 60;
         int healthPotionDropChance = 50; //Percentage
@@ -103,59 +108,18 @@ public class Dungeon {
 
                     continue GAME;
 
-                } else if (input.equals("Controls")) {
-                    System.out.println("\tTo Access Inventory, Type: 'Inventory'");
-                    System.out.println("\tTo Switch Weapons, Type: 'Switch Weapons'");
-                    System.out.println("\tTo Start Game, Type: 'Start'");
-                    System.out.println("\tTo End Game, Type: 'End'\n");
-
-                } else if (input.equals("Switch Weapons")) {
-                    System.out.println("\tChoose Between: ");
-                    System.out.println("\t> A Sword ");
-                    System.out.println("\t> An Axe ");
-                    System.out.println("\t> A Bow ");
-                    System.out.println("\t> A Spear \n");
-
                 } else if (input.equals("Inventory")) {
-                    System.out.println("\tYou have Bare Hands Equipped");
-                    System.out.println("\tTo Switch Weapons, Select Which Weapon You Want");
-                    System.out.println("\t>Sword");
-                    System.out.println("\t>Axe");
-                    System.out.println("\t>Bow");
-                    System.out.println("\t>Spear\n");
-
-                } else if (input.equals(WEAPON_SWORD)) {
-                    attackDamage = swordDamage;
-                    if (enemy.getWeakness() == WEAPON_SWORD) {
-                        attackDamage *= enemy.getWeaknessMultiplier();
-                    }
-                    System.out.println("\tYou Now Have a Sword Equipped\n");
-
-                } else if (input.equals(WEAPON_AXE)) {
-                    attackDamage = axeDamage;
-                    if (enemy.getWeakness() == WEAPON_AXE) {
-                        attackDamage *= enemy.getWeaknessMultiplier();
-                    }
-                    System.out.println("\tYou Now Have an Axe Equipped\n");
-
-                } else if (input.equals(WEAPON_BOW)) {
-                    attackDamage = bowDamage;
-                    if (enemy.getWeakness() == WEAPON_BOW) {
-                        attackDamage *= enemy.getWeaknessMultiplier();
-                    }
-                    System.out.println("\tYou Now Have a Bow Equipped\n");
-
-                } else if (input.equals(WEAPON_SPEAR)) {
-                    if (enemy.getWeakness() == WEAPON_SPEAR) {
-                        attackDamage *= enemy.getWeaknessMultiplier();
-                    }
-                    System.out.println("\tYou Now Have a Spear Equipped\n");
+                    System.out.println("\tYou Have No Weapons!");
 
                 } else {
                     System.out.println("Invalid Command!");
+
                 }
             }
-                playerInventory.gold += 5;
+
+            int gold = 5;
+            System.out.println("You Have Found " + gold + " coins!\n");
+            playerInventory.setGold(playerInventory.getGold() + 5);
 
             if (health < 1) {
                 System.out.println("You limp out of the dungeon, weak from battle.");

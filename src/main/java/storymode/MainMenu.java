@@ -1,25 +1,25 @@
-package shops;
+package storymode;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class ArmorShop {
+public class MainMenu {
     Scanner in = new Scanner(System.in);
-    public void enter() {
-        //Buy Armor
-        //Sell Armor
-        display();
-    }
 
-    private int display() {
+    public int display() {
         int input = 0;
         boolean isChoiceValid = false;
 
         while (!isChoiceValid) {
-            System.out.println("Welcome To The Armor Shop! How May You Find Protection Today?");
-            System.out.println("1. Buy Armor");
-            System.out.println("2. Sell Armor");
-            System.out.println("3. Leave");
+            System.out.println("Welcome To The Town! What Would You Like To Do.");
+            System.out.println("1. BlackSmith");
+            System.out.println("2. Church");
+            System.out.println("3. Wizard Center");
+            System.out.println("4. Weapon Shop");
+            System.out.println("5. Armor Shop");
+            System.out.println("6. Dungeon");
+            System.out.println("7. Inventory");
+            System.out.println("8. Quit");
 
             try {
                 input = in.nextInt();
@@ -30,13 +30,10 @@ public class ArmorShop {
                 in.nextLine();
             }
         }
-        if(input == 3){
-            isChoiceValid = true;
-        }
         return input;
     }
 
     private boolean validateChoice(int input) {
-        return (input >= 1 && input <= 3);
+        return (input >= 1 && input <= 7);
     }
 }

@@ -1,14 +1,14 @@
-package shops;
+package storymode.shops;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class WizardCenter {
+public class Church {
     Scanner in = new Scanner(System.in);
     public void enter() {
-        //Learn Spells
-        //Upgrade Spells
-        //Buy/Sell Wizard items *Cloak, potions, wand*
+        //Heal player
+        //Upgrade Stats of Player
+        //*SpawnPoint*
         display();
     }
 
@@ -17,12 +17,11 @@ public class WizardCenter {
         boolean isChoiceValid = false;
 
         while (!isChoiceValid) {
-            System.out.println("Welcome To The Wizard Center! What Spells May You Cast Today?");
-            System.out.println("1. Learn A New Spell");
-            System.out.println("2. Upgrade Spell");
-            System.out.println("3. Buy Wizard Item");
-            System.out.println("4. Sell Wizard Item");
-            System.out.println("5. Leave");
+            System.out.println("Welcome To The storymode.shops.Church! How May The Lord Serve You?");
+            System.out.println("1. Heal Player");
+            System.out.println("2. Upgrade Stats");
+            System.out.println("3. Set Spawn Point");
+            System.out.println("4. leave");
 
             try {
                 input = in.nextInt();
@@ -33,13 +32,13 @@ public class WizardCenter {
                 in.nextLine();
             }
         }
-        if(input == 5){
+        if(input == 4){
             isChoiceValid = true;
         }
         return input;
     }
 
     private boolean validateChoice(int input) {
-        return (input >= 1 && input <= 5);
+        return (input >= 1 && input <= 4);
     }
 }

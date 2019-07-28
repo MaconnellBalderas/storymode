@@ -1,4 +1,4 @@
-package monsters;
+package storymode.monsters;
 
 public class Zombie extends Monster {
     public Zombie() {

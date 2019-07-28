@@ -1,4 +1,6 @@
-import shops.*;
+package storymode;
+
+import storymode.shops.*;
 
 public class GameLauncher {
 
@@ -23,10 +25,10 @@ public class GameLauncher {
                 case 1: System.out.println("You Have Entered The BlackSmith\n"); blackSmith.enter(); break;
                 case 2: System.out.println("You Have Entered The Church\n"); church.enter(); break;
                 case 3: System.out.println("You Have Entered The Wizard Center\n"); wizardCenter.enter(); break;
-                case 4: System.out.println("You have Entered The Weapon Shop\n"); weaponShop.enter(); break;
-                case 5: System.out.println("You Have Entered The Armor Shop\n"); armorShop.enter(); break;
-                case 6: System.out.println("You have entered the dungeon.\n"); dungeon.enter(); break;
-                case 7: System.out.println("Your Gold Is: " + playerInventory.getGold()); break;
+                case 4: System.out.println("You have Entered The Weapon Shop\n"); weaponShop.enter(weaponShop, playerInventory, menu, dungeon); break;
+                case 5: System.out.println("You Have Entered The Armor Shop\n"); armorShop.enter(armorShop,playerInventory); break;
+                case 6: System.out.println("You have entered the dungeon.\n"); dungeon.enter(playerInventory); break;
+                case 7: System.out.println("Inventory:\n" + playerInventory.getGold() + " Gold Coins\n" + playerInventory.inventory(dungeon)); break;
                 case 8: inGame = false;
             }
 

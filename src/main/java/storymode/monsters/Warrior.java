@@ -1,4 +1,4 @@
-package monsters;
+package storymode.monsters;
 
 public class Warrior extends Monster {
     public Warrior() {

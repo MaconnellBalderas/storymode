@@ -1,4 +1,4 @@
-package monsters;
+package storymode.monsters;
 
 public class Assassin extends Monster {
     public Assassin() {
