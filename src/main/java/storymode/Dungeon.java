@@ -10,18 +10,12 @@ public class Dungeon {
     public static final String WEAPON_AXE = "Axe";
     public static final String WEAPON_SWORD = "Sword";
     public static final String WEAPON_SPEAR = "Spear";
-    public int attackDamage = 15;
 
     boolean inDungeon = true;
 
     Scanner in = new Scanner(System.in);
 
-    public int damage(){
-        attackDamage = 35;
-        return attackDamage;
-    }
-
-    public void enter(PlayerInventory playerInventory) {
+    public void enter(PlayerInventory playerInventory, PlayerStats playerStats) {
         //Objects
         Random rand = new Random();
 
@@ -77,7 +71,7 @@ public class Dungeon {
                 String input = in.nextLine();
 
                 if (input.equals("1")) {
-                    int damageDealt = attackDamage;
+                    int damageDealt = playerStats.damage();
                     int damageTaken = enemyAttackDamage;
 
                     enemyHealth -= damageDealt;

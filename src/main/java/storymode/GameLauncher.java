@@ -16,6 +16,7 @@ public class GameLauncher {
         MainMenu menu = new MainMenu();
 
         PlayerInventory playerInventory = new PlayerInventory();
+        PlayerStats playerStats = new PlayerStats();
 
         displayWelcomeMessage();
         boolean inGame = true;
@@ -27,8 +28,8 @@ public class GameLauncher {
                 case 3: System.out.println("You Have Entered The Wizard Center\n"); wizardCenter.enter(); break;
                 case 4: System.out.println("You have Entered The Weapon Shop\n"); weaponShop.enter(weaponShop, playerInventory, menu, dungeon); break;
                 case 5: System.out.println("You Have Entered The Armor Shop\n"); armorShop.enter(armorShop,playerInventory); break;
-                case 6: System.out.println("You have entered the dungeon.\n"); dungeon.enter(playerInventory); break;
-                case 7: System.out.println("Inventory:\n" + playerInventory.getGold() + " Gold Coins\n" + playerInventory.inventory(dungeon)); break;
+                case 6: System.out.println("You have entered the dungeon.\n"); dungeon.enter(playerInventory, playerStats); break;
+                case 7: System.out.println("Inventory:\n" + playerInventory.getGold() + " Gold Coins\n" + playerInventory.inventory(dungeon, playerStats)); break;
                 case 8: inGame = false;
             }
 

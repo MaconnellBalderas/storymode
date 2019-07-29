@@ -3,6 +3,7 @@ package storymode.shops;
 import storymode.Dungeon;
 import storymode.MainMenu;
 import storymode.PlayerInventory;
+import storymode.weapons.Sword;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -46,7 +47,7 @@ public class WeaponShop {
             } else{
                 System.out.println("You Have Bought A Weapon\n");
                 System.out.println("You Now Have A Sword! Take With Care Traveler.\n");
-                dungeon.damage();
+                playerInventory.addItem(new Sword());
             }
         }
 
