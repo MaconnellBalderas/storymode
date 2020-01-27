@@ -7,7 +7,7 @@ public class PlayerInventory {
 	
 	List<String> inventory = new ArrayList<String>();
 	
-	private int gold = 0;
+	private int gold = 100;
 	
 	public void display() {
 		System.out.println("Player Inventory: \n" + getGold() + " Gold Coins\n" + getInventory());
