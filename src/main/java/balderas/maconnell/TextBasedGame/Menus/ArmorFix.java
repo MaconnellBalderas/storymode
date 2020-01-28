@@ -12,54 +12,61 @@ import balderas.maconnell.TextBasedGame.Tools.Helmet;
 import balderas.maconnell.TextBasedGame.Tools.Leggings;
 import balderas.maconnell.TextBasedGame.Tools.Spear;
 import balderas.maconnell.TextBasedGame.Tools.Sword;
+import balderas.maconnell.TextBasedGame.io.Display;
+import balderas.maconnell.TextBasedGame.io.Input;
 
 public class ArmorFix {
-	
-Scanner in = new Scanner(System.in);
+
+	public static final String INVALID_COMMAND = "Invalid Command!";
+	public static final String ARMORFIX_LINE_1 = "What Weapon Would You Like To Fix?";
+	public static final String MENUBAR = "--------------------------------------------------------";
+	Input scanner;
+	Display display;
+	MainMenu mainMenu;
+
+	public ArmorFix(Display display, Input scanner, MainMenu mainMenu){
+		this.scanner = scanner;
+		this.display = display;
+		this.mainMenu = mainMenu;
+	}
+
+	public ArmorFix(){
+		this(new Display(), new Input(), new MainMenu());
+	}
 	
 	public String display(PlayerInventory inventory, Helmet helmet, ChestPlate chestplate, Leggings leggings, Boots boots) {
 		String input = "";
 		boolean isChoiceValid = false;
 		
 		while (!isChoiceValid) {
-			System.out.println("--------------------------------------------------------");
-			System.out.println("What Weapon Would You Like To Fix?");
-			for (String item : inventory.getInventory()) {
-				System.out.println(item);
-			}
-			
-			try {
-				input = in.nextLine();
-				isChoiceValid = validateChoice(input);
-			} catch (InputMismatchException e) {
-				System.out.println("Invalid Command!");
-			}
+			displayMenu(inventory);
+			input = captureInput();
+			isChoiceValid = validateChoice(input);
 		}
-		
-		if(input.equals("Helmet")) {
-			inventory.setGold(inventory.getGold() - 10);
-			helmet.setDurability(helmet.getDurability() + 5);
-			isChoiceValid = true;
-		}
-		if(input.equals("Chestplate")) {
-			inventory.setGold(inventory.getGold() - 10);
-			chestplate.setDurability(chestplate.getDurability() + 5);
-			isChoiceValid = true;
-		}
-		if(input.equals("Leggings")) {
-			inventory.setGold(inventory.getGold() - 10);
-			leggings.setDurability(leggings.getDurability() + 5);
-			isChoiceValid = true;
-		}
-		if(input.equals("Boots")) {
-			inventory.setGold(inventory.getGold() - 10);
-			boots.setDurability(boots.getDurability() + 5);
-			isChoiceValid = true;
-		}
+		processOptions(input, inventory, helmet, chestplate, leggings, boots);
 		return input;
 	}
+
+	protected String captureInput(){
+		String input = "";
+		try {
+			input = scanner.nextLine();
+		} catch (InputMismatchException e) {
+			display.println(INVALID_COMMAND);
+		}
+
+		return input;
+	}
+
+	protected void displayMenu(PlayerInventory inventory){
+		display.println(MENUBAR);
+		display.println(ARMORFIX_LINE_1);
+		for (String item : inventory.getInventory()) {
+			display.println(item);
+		}
+	}
 	
-	private boolean validateChoice(String input) {
+	protected boolean validateChoice(String input) {
 		if(input.equals("Helmet")) {
 			return true;
 		} else if(input.equals("Chestplate")) {
@@ -70,6 +77,25 @@ Scanner in = new Scanner(System.in);
 			return true;
 		}
 		return false;
+	}
+
+	protected  void processOptions(String input, PlayerInventory inventory, Helmet helmet, ChestPlate chestplate, Leggings leggings, Boots boots){
+		if(input.equals("Helmet")) {
+			inventory.setGold(inventory.getGold() - 10);
+			helmet.setDurability(helmet.getDurability() + 5);
+		}
+		if(input.equals("Chestplate")) {
+			inventory.setGold(inventory.getGold() - 10);
+			chestplate.setDurability(chestplate.getDurability() + 5);
+		}
+		if(input.equals("Leggings")) {
+			inventory.setGold(inventory.getGold() - 10);
+			leggings.setDurability(leggings.getDurability() + 5);
+		}
+		if(input.equals("Boots")) {
+			inventory.setGold(inventory.getGold() - 10);
+			boots.setDurability(boots.getDurability() + 5);
+		}
 	}
 
 }
