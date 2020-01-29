@@ -30,8 +30,12 @@ public class PlayerInventory {
 		System.out.println("You Have Removed An Item ");
 	}
 
-	public List<String> getInventory() {
-		return inventory;
+	public String getInventory() {
+		String listOfInventory = "";
+		for(String s : inventory){
+			listOfInventory += s + "";
+		}
+		return listOfInventory;
 	}
 		
 }

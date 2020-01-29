@@ -61,9 +61,10 @@ public class ArmorFix {
 	protected void displayMenu(PlayerInventory inventory){
 		display.println(MENUBAR);
 		display.println(ARMORFIX_LINE_1);
-		for (String item : inventory.getInventory()) {
-			display.println(item);
-		}
+//		for (String item : inventory.getInventory()) {
+//			display.println(item);
+//		}
+		inventory.getInventory();
 	}
 	
 	protected boolean validateChoice(String input) {
@@ -79,7 +80,7 @@ public class ArmorFix {
 		return false;
 	}
 
-	protected  void processOptions(String input, PlayerInventory inventory, Helmet helmet, ChestPlate chestplate, Leggings leggings, Boots boots){
+	protected void processOptions(String input, PlayerInventory inventory, Helmet helmet, ChestPlate chestplate, Leggings leggings, Boots boots){
 		if(input.equals("Helmet")) {
 			inventory.setGold(inventory.getGold() - 10);
 			helmet.setDurability(helmet.getDurability() + 5);

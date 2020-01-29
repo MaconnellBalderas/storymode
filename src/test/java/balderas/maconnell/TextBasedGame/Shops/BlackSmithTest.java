@@ -68,7 +68,7 @@ public class BlackSmithTest {
     }
 
     @Test
-    public void blackSmith_ReturnsFalse_WHenInputAboveRange(){
+    public void blackSmith_ReturnsFalse_WhenInputAboveRange(){
         assertEquals(false, blackSmith.validateChoice(6));
     }
 

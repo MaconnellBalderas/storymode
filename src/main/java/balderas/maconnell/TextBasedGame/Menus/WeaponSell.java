@@ -16,9 +16,10 @@ public class WeaponSell {
 			System.out.println("--------------------------------------------------------");
 			System.out.println("What Weapon Would You Like To Sell?");
 
-			for (String item : inventory.getInventory()) {
-				System.out.println(item);
-			}
+//			for (String item : inventory.getInventory()) {
+//				System.out.println(item);
+//			}
+			inventory.getInventory();
 			
 			try {
 				input = in.nextLine();

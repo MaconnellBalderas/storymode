@@ -17,9 +17,10 @@ Scanner in = new Scanner(System.in);
 		while (!isChoiceValid) {
 			System.out.println("--------------------------------------------------------");
 			System.out.println("What Weapon Would You Like To Upgrade?");
-			for (String item : inventory.getInventory()) {
-				System.out.println(item);
-			}
+//			for (String item : inventory.getInventory()) {
+//				System.out.println(item);
+//			}
+			inventory.getInventory();
 			
 			try {
 				input = in.nextLine();

@@ -8,7 +8,7 @@ public class Helmet extends Armor{
 	public int getDurability() {
 		return durablitiy;
 	}
-	
+
 	@Override
 	public int setDurability(int durability) {
 		return this.durablitiy = durability;

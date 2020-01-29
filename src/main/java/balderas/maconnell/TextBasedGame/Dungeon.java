@@ -119,9 +119,10 @@ public class Dungeon {
 					
 				} else if (input.equals("Inventory")) {
 					System.out.println("--------------------------------------------------------");
-					for (String item : playerInventory.getInventory()) {
-						System.out.println(item);
-					}
+//					for (String item : playerInventory.getInventory()) {
+//						System.out.println(item);
+//					}
+					playerInventory.getInventory();
 					System.out.println("--------------------------------------------------------");
 				} else {
 					System.out.println("Invalid Command");

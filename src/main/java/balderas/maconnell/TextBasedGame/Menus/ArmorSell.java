@@ -4,9 +4,24 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import balderas.maconnell.TextBasedGame.PlayerDetail.PlayerInventory;
+import balderas.maconnell.TextBasedGame.io.Display;
+import balderas.maconnell.TextBasedGame.io.Input;
+import jdk.tools.jaotc.Main;
 
 public class ArmorSell {
-	Scanner in = new Scanner(System.in);
+	Input scanner;
+	Display display;
+	MainMenu mainMenu;
+
+	public ArmorSell(Display display, Input scanner, MainMenu mainMenu){
+		this.scanner = scanner;
+		this.display = display;
+		this.mainMenu = mainMenu;
+	}
+
+	public ArmorSell(){
+		this(new Display(), new Input(), new MainMenu());
+	}
 	
 	public String display(PlayerInventory inventory) {
 		String input = "";
@@ -15,10 +30,7 @@ public class ArmorSell {
 		while (!isChoiceValid) {
 			System.out.println("--------------------------------------------------------");
 			System.out.println("What Armor Would You Like To Sell?");
-
-			for (String item : inventory.getInventory()) {
-				System.out.println(item);
-			}
+			inventory.getInventory();
 			
 			try {
 				input = in.nextLine();
